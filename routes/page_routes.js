@@ -11,4 +11,9 @@ page.get("/register", (req, res) => {
   res.render("register.html", { title: "register page" });
 });
 
+//dashboard
+page.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
 export default page;

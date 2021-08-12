@@ -3,10 +3,10 @@
     <form action="/api/user_login" method="POST" enctype="multipart/form-data">
       <h3>{{title}}</h3>
       <div class="mb-3">
-        {{#success}}
-        <div class="alert alert-success" role="alert">berhasil login</div>
+        {{#msg}}
+        <div class="alert alert-success" role="alert">{{msg}}</div>
 
-        {{/success}}
+        {{/msg}}
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input
           type="email"

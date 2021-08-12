@@ -13,7 +13,7 @@ auth.post("/user_register", form_data.none(), (req, res) => {
   User.create(data)
     .then((result) => {
       if (result) {
-        res.render("main", { success: true, msg: "berhasil register" });
+        res.redirect("/");
       } else {
         res.send({
           success: false,
@@ -33,7 +33,6 @@ auth.post("/user_register", form_data.none(), (req, res) => {
 //login
 auth.post("/user_login", form_data.none(), (req, res) => {
   const data = req.body;
-
   User.findOne({
     where: {
       email: data.email,
