@@ -3,6 +3,8 @@ import express from "express";
 import cors from "cors";
 import handlebars from "express-handlebars";
 import path from "path";
+import page from "./routes/page_routes";
+import auth from "./routes/auth_routes";
 
 //aliaskan app
 const app = express();
@@ -27,9 +29,8 @@ app.engine(
 );
 
 // buat routing
-app.get("/", (req, res) => {
-  res.render("main.html");
-});
+app.use("/", page);
+app.use("/api", auth);
 
 app.listen(9000, () => {
   console.log("listen port 9000");

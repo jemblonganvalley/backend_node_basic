@@ -1,0 +1,9 @@
+.container {
+  height: auto;
+  min-height: 100vh;
+}
+
+.card {
+  padding: 20px;
+  width: 300px;
+}
