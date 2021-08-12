@@ -5,6 +5,7 @@ import handlebars from "express-handlebars";
 import path from "path";
 import page from "./routes/page_routes";
 import auth from "./routes/auth_routes";
+import sequelize from "./model/connection";
 
 //aliaskan app
 const app = express();
@@ -14,6 +15,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "static/")));
+
+//connection to database
+sequelize
+  .sync({ force: true })
+  .then(() => {
+    console.log("konak to database");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // buat template engine
 app.set("view engine", "html");
