@@ -13,7 +13,7 @@ page.get("/register", (req, res) => {
 
 //dashboard
 page.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+  res.render("dashboard", { title: "jvalley" });
 });
 
 export default page;
